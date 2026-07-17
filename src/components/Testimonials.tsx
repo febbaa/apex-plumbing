@@ -1,4 +1,5 @@
 import { StarIcon } from '@heroicons/react/24/solid'
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 
 const REVIEWS = [
   {
@@ -21,8 +22,14 @@ const REVIEWS = [
 ]
 
 export default function Testimonials() {
+  const fadeIn = useScrollFadeIn<HTMLElement>()
+
   return (
-    <section id="reviews" className="bg-light-bg px-4 py-20 sm:px-6">
+    <section
+      id="reviews"
+      ref={fadeIn.ref}
+      className={`bg-light-bg px-4 py-20 sm:px-6 ${fadeIn.className}`}
+    >
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center font-heading text-3xl font-bold text-navy sm:text-4xl">
           What Our Customers Say

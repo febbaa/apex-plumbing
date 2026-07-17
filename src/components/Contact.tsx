@@ -1,14 +1,20 @@
 import { useForm } from '@formspree/react'
 import { PhoneIcon } from '@heroicons/react/24/solid'
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 
 const inputClasses =
   'w-full rounded-md bg-navy-light px-4 py-3 text-white placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-orange'
 
 export default function Contact() {
   const [state, submit] = useForm('xrenpqod')
+  const fadeIn = useScrollFadeIn<HTMLElement>()
 
   return (
-    <section id="contact" className="bg-navy px-4 py-20 sm:px-6">
+    <section
+      id="contact"
+      ref={fadeIn.ref}
+      className={`bg-navy px-4 py-20 sm:px-6 ${fadeIn.className}`}
+    >
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
         <div>
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">

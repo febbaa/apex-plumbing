@@ -4,6 +4,7 @@ import {
   CurrencyDollarIcon,
   MapPinIcon,
 } from '@heroicons/react/24/outline'
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn'
 
 const TRUST_POINTS = [
   {
@@ -29,8 +30,14 @@ const TRUST_POINTS = [
 ]
 
 export default function WhyUs() {
+  const fadeIn = useScrollFadeIn<HTMLElement>()
+
   return (
-    <section id="why-us" className="bg-navy px-4 py-20 sm:px-6">
+    <section
+      id="why-us"
+      ref={fadeIn.ref}
+      className={`bg-navy px-4 py-20 sm:px-6 ${fadeIn.className}`}
+    >
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center font-heading text-3xl font-bold text-white sm:text-4xl">
           Why Austin Homeowners Trust Apex

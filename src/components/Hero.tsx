@@ -2,31 +2,36 @@ const TRUST_STATS = ['500+ Jobs Completed', '15+ Years Experience', '4.9★ Aver
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy">
+    <section
+      className="relative overflow-hidden bg-navy"
+      style={{
+        backgroundImage: 'radial-gradient(ellipse 80% 60% at 0% 0%, #1a3a5c, transparent)',
+      }}
+    >
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage:
-            'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 40px)',
+          backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
         }}
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-6xl px-4 py-20 text-center sm:px-6 sm:py-28">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
         <span className="inline-flex items-center rounded-full bg-navy-light px-4 py-1.5 text-sm font-medium text-white">
           ⭐ Austin's #1 Rated Plumber
         </span>
 
-        <h1 className="mx-auto mt-6 max-w-3xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl">
+        <h1 className="mt-6 max-w-3xl font-heading text-4xl font-bold leading-tight text-white sm:text-5xl">
           Your Plumbing Emergency Ends Here
         </h1>
 
-        <p className="mx-auto mt-5 max-w-xl text-lg text-gray-text">
+        <p className="mt-5 max-w-xl text-lg text-gray-text">
           Licensed & insured plumbers serving Austin, TX. Same-day service, upfront pricing, no
           surprises.
         </p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
           <a
             href="tel:+15125550192"
             className="flex h-11 w-full items-center justify-center rounded-md bg-orange px-6 text-sm font-medium text-white transition-colors duration-150 hover:bg-orange-hover sm:w-auto"
@@ -41,7 +46,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-3 text-sm font-medium text-gray-text sm:flex-row sm:justify-center sm:gap-8">
+        <div className="mt-12 flex flex-col items-start gap-3 text-sm font-medium text-gray-text sm:flex-row sm:gap-8">
           {TRUST_STATS.map((stat) => (
             <span key={stat}>{stat}</span>
           ))}
