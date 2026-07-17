@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type MouseEvent } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import WrenchIcon from './WrenchIcon'
 
@@ -11,6 +11,11 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+
+  function handleNavClick(e: MouseEvent<HTMLAnchorElement>, href: string) {
+    e.preventDefault()
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-navy">
@@ -25,6 +30,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm font-medium text-gray-text transition-colors duration-150 hover:text-white"
             >
               {link.label}
@@ -59,7 +65,10 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                handleNavClick(e, link.href)
+                setOpen(false)
+              }}
               className="flex h-11 items-center text-sm font-medium text-gray-text transition-colors duration-150 hover:text-white"
             >
               {link.label}

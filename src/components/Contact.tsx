@@ -13,7 +13,8 @@ export default function Contact() {
     <section
       id="contact"
       ref={fadeIn.ref}
-      className={`bg-navy px-4 py-20 sm:px-6 ${fadeIn.className}`}
+      style={fadeIn.style}
+      className="bg-navy px-4 py-20 sm:px-6"
     >
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
         <div>

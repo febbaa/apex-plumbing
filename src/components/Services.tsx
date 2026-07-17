@@ -48,7 +48,8 @@ export default function Services() {
     <section
       id="services"
       ref={fadeIn.ref}
-      className={`bg-light-bg px-4 py-20 sm:px-6 ${fadeIn.className}`}
+      style={fadeIn.style}
+      className="bg-light-bg px-4 py-20 sm:px-6"
     >
       <div className="mx-auto max-w-6xl">
         <h2 className="text-center font-heading text-3xl font-bold text-navy sm:text-4xl">
