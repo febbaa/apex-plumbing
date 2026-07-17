@@ -41,7 +41,7 @@ export default function Contact() {
             </p>
           ) : (
             <form
-              action="https://formspree.io/f/demo"
+              action="https://formspree.io/f/xrenpqod"
               method="POST"
               onSubmit={handleSubmit}
               className="flex flex-col gap-4"
