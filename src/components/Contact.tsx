@@ -1,16 +1,11 @@
-import { useState, type FormEvent } from 'react'
+import { useForm } from '@formspree/react'
 import { PhoneIcon } from '@heroicons/react/24/solid'
 
 const inputClasses =
   'w-full rounded-md bg-navy-light px-4 py-3 text-white placeholder:text-gray-text focus:outline-none focus:ring-2 focus:ring-orange'
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitted(true)
-  }
+  const [state, submit] = useForm('xrenpqod')
 
   return (
     <section id="contact" className="bg-navy px-4 py-20 sm:px-6">
@@ -35,17 +30,12 @@ export default function Contact() {
         </div>
 
         <div>
-          {submitted ? (
+          {state.succeeded ? (
             <p className="rounded-md bg-navy-light p-6 text-white">
               Thanks! We'll call you within the hour.
             </p>
           ) : (
-            <form
-              action="https://formspree.io/f/xrenpqod"
-              method="POST"
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-4"
-            >
+            <form onSubmit={submit} className="flex flex-col gap-4">
               <input
                 type="text"
                 name="name"
@@ -69,7 +59,8 @@ export default function Contact() {
               />
               <button
                 type="submit"
-                className="h-11 w-full rounded-md bg-orange text-sm font-medium text-white transition-colors duration-150 hover:bg-orange-hover"
+                disabled={state.submitting}
+                className="h-11 w-full rounded-md bg-orange text-sm font-medium text-white transition-colors duration-150 hover:bg-orange-hover disabled:opacity-60"
               >
                 Send Message
               </button>
